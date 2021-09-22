@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
-const {listAnimals}= require('./pets')
+const {listAnimals, animalDetails}= require('./pets')
 
 app.get('/animals/:pet_type', listAnimals)
+app.get('/animals/:pet_type/:pet_id', animalDetails)
+
 app.get('/', (req, res) => res.send(`
 <h1>Adopt a pet!</h1>
 <p> Browse through the links below to find your new furry friend:</p>
